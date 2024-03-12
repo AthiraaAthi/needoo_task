@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:needoo_task/utils/image_constant.dart';
+import 'package:needoo_task/view/favourites.dart';
 import 'package:needoo_task/view/home_screen_widget.dart';
+import 'package:needoo_task/view/navigation.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -32,23 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-          color: Colors.green,
-          backgroundColor: Colors.white,
-          items: [
-            Icon(Icons.home, color: Colors.white, size: 30),
-            Icon(Icons.favorite, color: Colors.white, size: 30),
-            Icon(Icons.shopping_cart, color: Colors.white, size: 30),
-            Icon(Icons.shopping_bag, color: Colors.white, size: 30),
-            Icon(Icons.person, color: Colors.white, size: 30),
-          ]),
+      bottomNavigationBar: NavigationBarScreen(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Container(
-                height: 60,
+                height: 45,
                 width: 400,
                 color: Colors.white,
                 child: ListTile(
@@ -68,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Row(
                 children: [
@@ -87,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeScreenWidget(
                 title: "Groceries",
                 subtitle: "Groceries & Vegetables",
-                image: "",
+                image: ImageConstant.groceries,
               ),
               SizedBox(
                 height: 15,
@@ -95,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeScreenWidget(
                 title: "Fish and Meat",
                 subtitle: "Fresh fish, chicken, meat...",
-                image: "",
+                image: ImageConstant.meat,
               ),
               SizedBox(
                 height: 15,
@@ -103,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeScreenWidget(
                 title: "Bakes & Food",
                 subtitle: "Get delicious bakes & food",
-                image: "",
+                image: ImageConstant.burger,
               ),
               SizedBox(
                 height: 30,
@@ -135,8 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   for (int i = 0; i < images.length; i++)
                     Container(
-                      height: 13,
-                      width: 13,
+                      height: 10,
+                      width: 10,
                       margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: currentIndex == i ? Colors.green : Colors.grey,

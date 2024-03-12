@@ -13,7 +13,7 @@ class HomeScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
+      height: 70,
       width: 360,
       decoration: BoxDecoration(
         boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 3)],
@@ -23,7 +23,8 @@ class HomeScreenWidget extends StatelessWidget {
       child: ListTile(
         leading: Container(
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(image)),
+              image:
+                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
               color: Color.fromARGB(255, 129, 170, 239),
               borderRadius: BorderRadius.circular(10)),
           height: 70,
