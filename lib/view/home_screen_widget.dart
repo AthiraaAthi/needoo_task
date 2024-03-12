@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/color_constant.dart';
+
 class HomeScreenWidget extends StatelessWidget {
   const HomeScreenWidget(
       {super.key,
@@ -34,7 +36,10 @@ class HomeScreenWidget extends StatelessWidget {
         title: Text(
           title,
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: ColorConstant.defaultBlack,
+          ),
         ),
         subtitle: Text(
           subtitle,

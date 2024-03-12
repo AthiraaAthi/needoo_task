@@ -7,6 +7,8 @@ import 'package:needoo_task/view/home_screen_widget.dart';
 import 'package:needoo_task/view/location_page.dart';
 import 'package:needoo_task/view/navigation.dart';
 
+import '../utils/color_constant.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "shoppy",
           style: TextStyle(
             fontSize: 20,
-            color: Colors.black,
+            color: ColorConstant.defaultBlack,
           ),
         ),
       ),
@@ -58,12 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     leading: Icon(
                       Icons.location_on_outlined,
                       size: 30,
-                      color: Colors.green,
+                      color: ColorConstant.defaultGreen,
                     ),
                     title: Text(
                       "Office",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: ColorConstant.defaultBlack,
                         fontSize: 18,
                       ),
                     ),
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     "You will get on your doorstep!",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: ColorConstant.defaultBlack,
                         fontSize: 20),
                   ),
                 ],
@@ -145,7 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 10,
                       margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        color: currentIndex == i ? Colors.green : Colors.grey,
+                        color: currentIndex == i
+                            ? ColorConstant.defaultGreen
+                            : Colors.grey,
                         shape: BoxShape.circle,
                       ),
                     )
