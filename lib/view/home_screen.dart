@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:needoo_task/utils/image_constant.dart';
 import 'package:needoo_task/view/favourites.dart';
 import 'package:needoo_task/view/home_screen_widget.dart';
+import 'package:needoo_task/view/location_page.dart';
 import 'package:needoo_task/view/navigation.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,9 +16,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> images = [
+    "assets/images/carousal1.jpg",
+    "assets/images/carousal2.jpg",
     "assets/images/burger.jpeg",
-    "assets/images/fish and meat.jpeg",
-    "assets/image/groceries.jpeg",
   ];
   int currentIndex = 0;
 
@@ -35,30 +36,39 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBarScreen(),
+      //bottomNavigationBar: NavigationBarScreen(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Container(
-                height: 45,
-                width: 400,
-                color: Colors.white,
-                child: ListTile(
-                  leading: Icon(
-                    Icons.location_on_outlined,
-                    size: 30,
-                    color: Colors.green,
-                  ),
-                  title: Text(
-                    "Office",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LocationPage(),
+                      ));
+                },
+                child: Container(
+                  height: 45,
+                  width: 400,
+                  color: Colors.white,
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.location_on_outlined,
+                      size: 30,
+                      color: Colors.green,
                     ),
+                    title: Text(
+                      "Office",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                    subtitle: Text("edakkara marutha road"),
                   ),
-                  subtitle: Text("edakkara marutha road"),
                 ),
               ),
               SizedBox(
@@ -106,6 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 disableGesture: false,
                 itemCount: images.length,
                 itemBuilder: (context, index, realIndex) => Container(
+                  height: 50,
+                  width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
