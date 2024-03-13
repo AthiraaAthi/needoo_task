@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:needoo_task/utils/color_constant.dart';
-import 'package:needoo_task/view/locationpage_widget.dart';
+import 'package:needoo_task/widgets/locationpage_widget.dart';
 
 class LocationPage extends StatelessWidget {
   LocationPage({super.key});

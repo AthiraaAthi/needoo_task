@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:needoo_task/model/my_model.dart';
 import 'package:needoo_task/utils/image_constant.dart';
 import 'package:needoo_task/view/favourites.dart';
-import 'package:needoo_task/view/home_screen_widget.dart';
+import 'package:needoo_task/widgets/category_widgets.dart';
+import 'package:needoo_task/widgets/home_screen_widget.dart';
 import 'package:needoo_task/view/location_page.dart';
 import 'package:needoo_task/view/navigation.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,18 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/carousal2.jpg",
     "assets/images/burger.jpeg",
   ];
+  List<String> categories = [
+    "assets/images/foodcategory.jpeg",
+    "assets/images/grocery.jpeg",
+    "assets/images/electronics.jpeg",
+    "assets/images/clothing.jpeg",
+  ];
+  List<String> categoryName = [
+    "Food",
+    "Grocery",
+    "Electronics",
+    "Clothing",
+  ];
   int currentIndex = 0;
   NeedooApi needooApiobj = NeedooApi();
   @override
@@ -39,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //final MyControllerobj = Provider.of<MyController>(context);
+    final MyControllerobj = Provider.of<MyController>(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -53,7 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      //bottomNavigationBar: NavigationBarScreen(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -169,7 +181,34 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )
                 ],
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Shop by categories",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: ColorConstant.defaultBlack,
+                        fontSize: 20),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 150,
+                width: 380,
+                child: ListView.builder(
+                  itemCount: categories.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => CategoryWidget(
+                      image: categories[index], category: categoryName[index]),
+                ),
+              ),
             ],
           ),
         ),

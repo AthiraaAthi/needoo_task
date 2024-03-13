@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:needoo_task/utils/color_constant.dart';
 import 'package:needoo_task/utils/image_constant.dart';
-import 'package:needoo_task/view/bakes_and_food_widget.dart';
+import 'package:needoo_task/widgets/bakes_and_food_widget.dart';
 
 class OnTapScreen extends StatefulWidget {
   OnTapScreen({super.key});
