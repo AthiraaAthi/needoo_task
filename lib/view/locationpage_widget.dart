@@ -7,15 +7,18 @@ class LocationPageWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subtitle,
-      required this.icon});
+      required this.icon,
+      this.onTap});
 
   final String title;
   final String subtitle;
   final IconData? icon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       leading: Icon(
         icon,
         size: 30,

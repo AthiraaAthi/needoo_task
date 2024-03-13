@@ -1,12 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:needoo_task/model/my_model.dart';
 import 'package:needoo_task/utils/image_constant.dart';
 import 'package:needoo_task/view/favourites.dart';
 import 'package:needoo_task/view/home_screen_widget.dart';
 import 'package:needoo_task/view/location_page.dart';
 import 'package:needoo_task/view/navigation.dart';
+import 'package:provider/provider.dart';
 
+import '../controller/my_controller.dart';
 import '../utils/color_constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,9 +26,20 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/burger.jpeg",
   ];
   int currentIndex = 0;
+  NeedooApi needooApiobj = NeedooApi();
+  @override
+  void initState() {
+    fetchdata();
+    super.initState();
+  }
+
+  Future<void> fetchdata() async {
+    await Provider.of<MyController>(context, listen: false).fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
+    //final MyControllerobj = Provider.of<MyController>(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -35,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             fontSize: 20,
             color: ColorConstant.defaultBlack,
+            fontWeight: FontWeight.w800,
           ),
         ),
       ),
@@ -53,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ));
                 },
                 child: Container(
-                  height: 45,
+                  height: 50,
                   width: 400,
                   color: Colors.white,
                   child: ListTile(

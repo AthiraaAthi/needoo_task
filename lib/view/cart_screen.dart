@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:needoo_task/view/navigation.dart';
 
 import '../utils/color_constant.dart';
 
-class FavouriteScreen extends StatelessWidget {
-  const FavouriteScreen({super.key});
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +21,10 @@ class FavouriteScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          "Favourites",
+          "Cart",
           style: TextStyle(
             fontWeight: FontWeight.w800,
-            color: Colors.black,
+            color: ColorConstant.defaultBlack,
           ),
         ),
       ),
